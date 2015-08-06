@@ -13,21 +13,57 @@ angular
     'ngAnimate',
     'ngCookies',
     'ngResource',
-    'ngRoute',
+    'ui.router',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ngMaterial',
+    'ngAria'
   ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
+  .config(function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise("/");
+    
+    $stateProvider
+    .state('tabs', {
+      abstract: true,
+      url: '/tabs',
+      templateUrl: 'tabs.html',
+      controller: function($scope) {
+        $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+          $scope.currentTab = toState.data.selectedTab;
+        });
+      }
+    })
+    .state('tabs.jobs', {
+      url: '/jobs',
+      data: {
+        'selectedTab': 0
+      },
+      views: {
+        'jobs': {
+          controller: JobsController
+        }
+      }
+    })
+    .state('tabs.timeline', {
+      url: '/timeline',
+      data: {
+        'selectedTab': 1
+      },
+      views: {
+        'timeline': {
+          controller: TimelineController
+        }
+      }
+    })
+    .state('tabs.files', {
+      url: '/files',
+      data: {
+        'selectedTab': 1
+      },
+      views: {
+        'files': {
+          controller: FilesController
+        }
+      }
+    })
   });
