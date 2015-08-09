@@ -28,18 +28,7 @@
           </div>
       </md-toolbar>
     </div>
-    <div>
-      <md-tabs border-bottom>
-        <md-tab>
-          <md-tab-label>Test</md-tab-label>
-          <md-tab-body ui-view=""></md-tab-body>  
-        </md-tab>
-        <md-tab></md-tab>
-        <md-tab></md-tab>
-        
-      </md-tabs>
-    </div>
-
+    <div ui-view></div>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -70,8 +59,9 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/tabs.js"></script>
-        <script src="scripts/services/redirect.js"></script>
+        <script src="scripts/controllers/jobs.js"></script>
+        <script src="scripts/controllers/files.js"></script>
+        <script src="scripts/controllers/timeline.js"></script>
         <!-- endbuild -->
 </body>
 </html>

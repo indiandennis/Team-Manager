@@ -20,15 +20,15 @@ angular
     'ngAria'
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise('/tabs/jobs');
     
     $stateProvider
     .state('tabs', {
-      abstract: true,
       url: '/tabs',
-      templateUrl: 'tabs.html',
+      abstract: 'true',
+      templateUrl: 'views/tabs.html',
       controller: function($scope) {
-        $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+        $scope.$on('$stateChangeSuccess', function(event, toState) {
           $scope.currentTab = toState.data.selectedTab;
         });
       }
@@ -40,7 +40,8 @@ angular
       },
       views: {
         'jobs': {
-          controller: JobsController
+          templateUrl: 'views/jobs.html',
+          controller: 'JobsController'
         }
       }
     })
@@ -51,19 +52,21 @@ angular
       },
       views: {
         'timeline': {
-          controller: TimelineController
+          templateUrl: 'views/timeline.html',
+          controller: 'TimelineController'
         }
       }
     })
     .state('tabs.files', {
       url: '/files',
       data: {
-        'selectedTab': 1
+        'selectedTab': 2
       },
       views: {
         'files': {
-          controller: FilesController
+          templateUrl: 'views/files.html',
+          controller: 'FilesController'
         }
       }
-    })
+    });
   });

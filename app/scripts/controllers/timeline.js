@@ -8,6 +8,7 @@
  * Controller of the teamManagerApp
  */
 angular.module('teamManagerApp')
-  .controller('FilesController', function ($scope) {
+  .controller('TimelineController', function ($scope) {
     $scope.test = 'a test';
   });
+  
