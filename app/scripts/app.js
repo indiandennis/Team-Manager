@@ -19,7 +19,16 @@ angular
     'ngMaterial',
     'ngAria'
   ])
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+      .primaryPalette('blue', {
+        'default': '900',
+        'hue-1': '100',
+        'hue-2': '600',
+        'hue-3': 'A100'
+      })
+      .accentPalette('amber');
+    
     $urlRouterProvider.otherwise('/tabs/jobs');
     
     $stateProvider

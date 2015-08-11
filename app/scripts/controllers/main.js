@@ -8,6 +8,16 @@
  * Controller of the teamManagerApp
  */
 angular.module('teamManagerApp')
-  .controller('FilesController', function ($scope) {
-    $scope.test = 'a test';
+  .controller('MainController', function ($scope, $timeout, $mdSidenav, $mdUtil, $log) {
+    $scope.toggleLeft = buildToggler('left');    
+    function buildToggler(navID) {
+      var debounceFn = $mdUtil.debounce(function () {
+        $mdSidenav(navID)
+          .toggle()
+          .then(function () {
+            $log.debug("toggle " + navID + " is done");
+          });
+      }, 200);
+      return debounceFn;
+    }
   });
