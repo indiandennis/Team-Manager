@@ -1,5 +1,6 @@
 # team-manager
-Copyright 2015 Ameya Thakur
+Copyright 2015 Ameya Thakur.
+
 All rights reserved.
 
 ## Build & development
