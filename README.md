@@ -1,7 +1,9 @@
 # team-manager
+[![Code Climate](https://codeclimate.com/github/indiandennis/Team-Manager/badges/gpa.svg)](https://codeclimate.com/github/indiandennis/Team-Manager) [![Circle CI](https://circleci.com/gh/indiandennis/Team-Manager.svg?style=svg)](https://circleci.com/gh/indiandennis/Team-Manager)
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.11.1.
+Copyright 2015 Ameya Thakur.
+
+All rights reserved.
 
 ## Build & development
 
