@@ -47,7 +47,7 @@ module.exports = function(config) {
 
     // web server port
     port: 8080,
-
+    
     // Start these browsers, currently available:
     // - Chrome
     // - ChromeCanary
@@ -57,7 +57,10 @@ module.exports = function(config) {
     // - PhantomJS
     // - IE (only Windows)
     browsers: [
-      "PhantomJS"
+      "PhantomJS",
+      "Chrome",
+      "Firefox",
+
     ],
 
     // Which plugins to enable
@@ -68,7 +71,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false,
+    singleRun: true,
 
     colors: true,
 

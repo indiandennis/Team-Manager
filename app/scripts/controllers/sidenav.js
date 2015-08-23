@@ -8,11 +8,11 @@
  * Controller of the teamManagerApp
  */
 angular.module('teamManagerApp')
-  .controller('SidenavController', function ($scope) {
+  .controller('SidenavController', function ($scope, $log, $mdSidenav) {
     $scope.close = function () {
       $mdSidenav('right').close()
         .then(function () {
-          $log.debug("close RIGHT is done");
+          $log.debug('close RIGHT is done');
         });
     };
   });
