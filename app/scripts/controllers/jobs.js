@@ -8,6 +8,7 @@
  * Controller of the teamManagerApp
  */
 angular.module('teamManagerApp')
-  .controller('JobsController', function ($scope) {
+  .controller('JobsController', function ($scope, $firebaseObject) {
+    var ref = new Firebase('https://phsrobotics.firebaseio.com');
     $scope.test = 'a test';
   });
