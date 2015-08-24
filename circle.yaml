@@ -1,0 +1,36 @@
+machine:  
+  environment:
+    PATH: ${PATH}:${HOME}/${CIRCLE_PROJECT_REPONAME}/node_modules/.bin
+    NODE_ENV: test
+    TZ: Europe/Prague
+  node:
+    version: v0.10.33
+
+general:  
+  artifacts:
+    - code/client/build/karma-coverage
+
+dependencies:  
+  cache_directories:
+    - node_modules
+    - code/server/node_modules
+    - code/client/node_modules
+    - code/client/vendor
+  override:
+    - npm prune && npm install
+    - npm prune && npm install:
+        pwd: code/server
+    - npm prune && npm install:
+        pwd: code/client
+    - bower prune && bower install:
+        pwd: code/client
+
+test:  
+  override:
+    - grunt test:
+        pwd: code/server
+    - grunt test && grunt compile:
+        pwd: code/client
+  post:
+    - sed -i -e 's/\/node_modules//' code/server/.gitignore
+    - sed -i -e 's/\/bin//' code/client/.gitignore
