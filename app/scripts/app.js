@@ -30,41 +30,12 @@ angular
       })
       .accentPalette('amber');
 
-    $urlRouterProvider.otherwise('/tabs/jobs');
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider
-      .state('tabs', {
-        url: '/tabs',
-        abstract: 'true',
-        templateUrl: 'views/tabs.html',
-        controller: function ($scope) {
-          $scope.$on('$stateChangeSuccess', function (event, toState) {
-            $scope.currentTab = toState.data.selectedTab;
-          });
-        }
-      })
-      .state('tabs.jobs', {
-        url: '/jobs',
-        data: {
-          'selectedTab': 0
-        },
-        views: {
-          'jobs': {
-            templateUrl: 'views/jobs.html',
-            controller: 'JobsController'
-          }
-        }
-      })
-      .state('tabs.timeline', {
-        url: '/timeline',
-        data: {
-          'selectedTab': 1
-        },
-        views: {
-          'timeline': {
-            templateUrl: 'views/timeline.html',
-            controller: 'TimelineController'
-          }
-        }
+      .state('home', {
+        url: '/',
+        templateUrl: 'views/jobs.html',
+        controller: 'JobsController'
       });
-  });
+});
