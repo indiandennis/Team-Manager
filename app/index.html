@@ -33,19 +33,18 @@
       <md-button class="md-icon-button" ng-click="showSettings($event)" aria-label="Settings">
         <md-icon md-font-set="material-icons">settings</md-icon>
       </md-button>
-    </md-toolbar>
-    <md-sidenav class="test" md-component-id="left" class="md-sidenav-left md-whiteframe-z3">
+    </md-toolbar
+    <md-sidenav class="test md-sidenav-left md-whiteframe-z3" md-component-id="left">
       <md-content layout-margin ng-controller="SidenavController as nav">
         <md-list layout="column">
-          <md-subheader class="md-no-sticky">Possible Menu Here</md-subheader>
-          <md-list-item ng-click="navigateTo('data usage', $event)">
-            <md-icon md-icon-set="material-icons">cached</md-icon>
-            <p>Data Usage</p>
-          </md-list-item>
+          <md-subheader class="md-no-sticky">Menu Here</md-subheader>
+          <div ng-controller="AuthController as auth"></div>
+          <md-list-item ng-click="logout()"> </md-list-item>
+            <md-icon md-icon-set="material-icons">exit_to_app</md-icon>
+            <p>Logout</p>
         </md-list>
       </md-content>
-    </md-sidenav>
-    <div ui-view ></div>
+    </md-sidenav
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
@@ -78,6 +77,7 @@
     <script src="scripts/controllers/sidenav.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/settings.js"></script>
+    <script src="scripts/controllers/auth.js"></script>
     <!-- endbuild -->
   </body>
 
