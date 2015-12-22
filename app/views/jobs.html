@@ -1,32 +1,46 @@
- <md-content layout="column" class="md-padding" flex>
-        <md-grid-list id="highPriority" md-cols="3" md-cols-sm="1" md-cols-md="2" md-gutter="1em" md-row-height="1:1">
-            <md-grid-tile ng-repeat="job in high" md-rowspan="2" md-colspan="1">
+ <section layout="column" flex>
+        
+        <md-grid-list id="highPriority" md-cols="5" md-cols-sm="1" md-cols-md="3" md-gutter="1em" md-row-height="18rem">
+            <md-grid-tile ng-repeat="job in high" md-rowspan="1" md-colspan="1">
                 <md-card>
+                    <div layout="row">
+                        <span flex></span>
+                        <md-button class="md-icon-button"><md-icon class="material-icons md-dark" aria-label="Close dialog">edit</md-icon></md-button>
+                    </div>
+                    <md-card-header>
+                        <md-card-avatar>
+                            <img class="md-user-avatar" src="img/100-2.jpeg"/>
+                        </md-card-avatar>
+                        <md-card-header-text>
+                            <span class="md-title">User</span>
+                            <span class="md-subhead">subhead</span>
+                        </md-card-header-text>
+                    </md-card-header>
+                    <md-card-title><md-card-title-text><span class="md-headline">{{job.name}}</span></md-card-title-text></md-card-title>
                     <md-card-content>
-                        <h2>{{job.name}}</h2>
-                        <p>{{job.description}}</p>
+                        <p>{{job.desc}}</p>
                     </md-card-content>
                 </md-card>
             </md-grid-tile>
         </md-grid-list>
-        <md-grid-list id="midPriority" md-cols="3" md-cols-sm="1" md-cols-md="2" md-gutter="1em" md-row-height="1:1">
-            <md-grid-tile ng-repeat="job in mid" md-rowspan="2" md-colspan="1">
+        <md-grid-list id="midPriority" md-cols="5" md-cols-sm="1" md-cols-md="2" md-gutter="1em" md-row-height="18rem">
+            <md-grid-tile ng-repeat="job in mid" md-rowspan="1" md-colspan="1">
                 <md-card>
                     <md-card-content>
                         <h2>{{job.name}}</h2>
-                        <p>{{job.description}}</p>
+                        <p>{{job.desc}}</p>
                     </md-card-content>
                 </md-card>
             </md-grid-tile>
         </md-grid-list>
-        <md-grid-list id="lowPriority" md-cols="3" md-cols-sm="1" md-cols-md="2" md-gutter="1em" md-row-height="1:1">
-            <md-grid-tile ng-repeat="job in low" md-rowspan="2" md-colspan="1">
+        <md-grid-list id="lowPriority" md-cols="5" md-cols-sm="1" md-cols-md="2" md-gutter="1em" md-row-height="18rem">
+            <md-grid-tile ng-repeat="job in low" md-rowspan="1" md-colspan="1">
                 <md-card>
                     <md-card-content>
                         <h2>{{job.name}}</h2>
-                        <p>{{job.description}}</p>
+                        <p>{{job.desc}}</p>
                     </md-card-content>
                 </md-card>
             </md-grid-tile>
         </md-grid-list>
-    </md-content>
+</section>
