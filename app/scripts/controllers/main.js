@@ -21,32 +21,32 @@ angular.module('teamManagerApp')
       }, 200);
       return debounceFn;
     }
-    
+
     $scope.toggleLeft = buildToggler('left');
-    
+
     $scope.showSettings = function (ev) {
       $mdDialog.show({
-        controller: 'SettingsController',
-        templateUrl: 'views/settings.html',
-        parent: angular.element(document.body),
-        targetEvent: ev,
-        clickOutsideToClose: true
-      })
+          controller: 'SettingsController',
+          templateUrl: 'views/settings.html',
+          parent: angular.element(document.body),
+          targetEvent: ev,
+          clickOutsideToClose: true
+        })
         .then(function () {
           $log.debug('Settings dialog opened');
         }, function () {
           $log.debug('Settings dialog closed');
         });
     };
-    
+
     $scope.showLogin = function (ev) {
       $mdDialog.show({
-        controller: 'AuthController',
-        templateUrl: 'views/auth.html',
-        parent: angular.element(document.body),
-        targetEvent: ev,
-        clickOutsideToClose: false
-      })
+          controller: 'AuthController',
+          templateUrl: 'views/auth.html',
+          parent: angular.element(document.body),
+          targetEvent: ev,
+          clickOutsideToClose: false
+        })
         .then(function () {
           $log.debug('Login dialog opened');
         })
@@ -56,14 +56,15 @@ angular.module('teamManagerApp')
     var ref = new Firebase('https://phsrobotics.firebaseio.com');
     var syncObject = $firebaseObject(ref);
     var authData = ref.getAuth();
+
     function authDataCallback(authData) {
-        if (authData) {
+      if (authData) {
         console.log("User " + authData.uid + " is logged in with " + authData.provider);
-        } else {
+      } else {
         console.log("User is logged out");
         $scope.showLogin();
-        }
+      }
     }
+
     ref.onAuth(authDataCallback);
   });
-  

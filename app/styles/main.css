@@ -3,24 +3,69 @@
   background: #ccc;
   color: #000;
   padding: 0.2em 0;
-  }
+}
+
 #highPriority {
-    background-color: #F44336;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff0000+0,ff7b00+100 */
+  background: #ff0000; /* Old browsers */
+  background: -moz-linear-gradient(top, #ff0000 0%, #ff7b00 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #ff0000 0%, #ff7b00 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #ff0000 0%, #ff7b00 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0000', endColorstr='#ff7b00', GradientType=0); /* IE6-9 */
 }
+
 #midPriority {
-    background-color: #FFB300;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff7b00+0,fcc100+100 */
+  background: #ff7b00; /* Old browsers */
+  background: -moz-linear-gradient(top, #ff7b00 0%, #fcc100 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #ff7b00 0%, #fcc100 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #ff7b00 0%, #fcc100 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff7b00', endColorstr='#fcc100', GradientType=0); /* IE6-9 */
+
 }
+
 #lowPriority {
-    background-color: #FFEE58;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fcc100+0,ffff00+100 */
+  background: #fcc100; /* Old browsers */
+  background: -moz-linear-gradient(top, #fcc100 0%, #ffff00 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #fcc100 0%, #ffff00 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #fcc100 0%, #ffff00 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcc100', endColorstr='#ffff00', GradientType=0); /* IE6-9 */
+
 }
 
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-48 { font-size: 48px; }
+#container {
+  background-color: #ffff00;
+}
 
-.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
-.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+.material-icons.md-18 {
+  font-size: 18px;
+}
 
-.material-icons.md-light { color: rgba(255, 255, 255, 1); }
-.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3);} 
+.material-icons.md-24 {
+  font-size: 24px;
+}
+
+.material-icons.md-36 {
+  font-size: 36px;
+}
+
+.material-icons.md-48 {
+  font-size: 48px;
+}
+
+.material-icons.md-dark {
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.material-icons.md-dark.md-inactive {
+  color: rgba(0, 0, 0, 0.26);
+}
+
+.material-icons.md-light {
+  color: rgba(255, 255, 255, 1);
+}
+
+.material-icons.md-light.md-inactive {
+  color: rgba(255, 255, 255, 0.3);
+}

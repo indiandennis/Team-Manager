@@ -16,7 +16,6 @@ angular
     'ngResource',
     'ui.router',
     'ngSanitize',
-    'ngTouch',
     'ngMaterial',
     'ngAria'
   ])
@@ -38,4 +37,4 @@ angular
         templateUrl: 'views/jobs.html',
         controller: 'JobsController'
       });
-});
+  });
