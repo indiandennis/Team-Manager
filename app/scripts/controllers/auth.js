@@ -21,7 +21,7 @@ angular.module('teamManagerApp')
         password: $scope.password
       }, authHandler);
     }
-
+    $scope.officer = true;
     $scope.error = "false";
     function authHandler(error, authData) {
       if (error) {

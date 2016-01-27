@@ -1,0 +1,73 @@
+<md-dialog flex aria-label="Edit Job" layout="column" style="max-width:800px;max-height:810px;">
+  <md-toolbar>
+    <div layout="row" class="md-toolbar-tools">
+      <h2 class="md-headline" layout-align="start center">Edit Job</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="hide()">
+        <md-icon class="material-icons" aria-label="Close dialog">close</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-dialog-content class="md-padding">
+    <form name="jobForm">
+      <div layout-gt-sm="row">
+        <md-input-container layout="column" flex="auto" flex-gt-sm="50">
+          <div layout="row">
+            <label>Title</label>
+            <input name="title" ng-model="title" required>
+          </div>
+          <div ng-messages="jobForm.title.$error">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+        <!--<md-input-container layout="column" flex>
+          <div layout="row">
+            <label>Location</label>
+            <input ng-model="location">
+          </div>
+        </md-input-container-->
+      </div>
+      <!--
+      <md-input-container class="md-block" flex>
+        <label>Priority</label>
+        <md-select required name="priority" placeholder="Select job priority" ng-model="priority">
+          <md-option>High</md-option>
+          <md-option>Medium</md-option>
+          <md-option>Low</md-option>
+        </md-select>
+      </md-input-container>
+      -->
+      <div layout-gt-sm="row">
+        <md-input-container clas="md-block" layout="column" flex="auto" flex-gt-sm="50">
+          <label>Subgroup</label>
+          <md-select required name="subgroup" placeholder="Select subgroup" ng-model="subgroup">
+            <md-option>General</md-option>
+            <md-option>Electrical</md-option>
+            <md-option>Hardware</md-option>
+            <md-option>CAD</md-option>
+            <md-option>Software</md-option>
+          </md-select>
+          <div ng-messages="jobForm.subgroup.$error">
+            <div ng-message="required">This is required!</div>
+          </div>
+        </md-input-container>
+        <md-input-container layout="column" flex>
+          <div layout="row">
+            <label>Leader</label>
+            <input name="leader" ng-model="leader">
+          </div>
+        </md-input-container>
+      </div>
+      <md-input-container class="md-block">
+        <label>Description</label>
+        <textarea md-maxlength="100" columns="1" rows="5" ng-model="desc"></textarea>
+      </md-input-container>
+      <div layout-align="center center" layout="row">
+        <md-button ng-disabled="jobForm.$invalid" ng-click="submit()"
+                   class="md-accent md-hue-2 md-raised">
+          Submit
+        </md-button>
+      </div>
+    </form>
+  </md-dialog-content>
+</md-dialog>

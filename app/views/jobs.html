@@ -1,82 +1,110 @@
 <section layout="column" flex>
-  <md-grid-list layout-align="start" id="highPriority" md-cols="5" md-cols-sm="1" md-cols-md="3" md-gutter="1em"
-                md-row-height="18rem">
-    <md-grid-tile ng-repeat="job in high" md-rowspan="1" md-colspan="1">
-      <md-card ng-show="!job.editable">
-        <div layout="row">
-          <span flex></span>
-          <md-button class="md-icon-button" ng-click="job.editable=true">
-            <md-icon class="material-icons md-dark" aria-label="edit">edit</md-icon>
-          </md-button>
-        </div>
-        <md-card-header>
-          <md-card-avatar>
-            <img class="md-user-avatar" src="img/100-2.jpeg"/>
-          </md-card-avatar>
-          <md-card-header-text>
-            <span class="md-title">User</span>
-            <span class="md-subhead">location or team</span>
-          </md-card-header-text>
-        </md-card-header>
-        <md-card-title>
-          <md-card-title-text><span class="md-headline">{{job.name}}</span></md-card-title-text>
-        </md-card-title>
-        <md-card-content>
-          <p>{{job.desc}}</p>
-        </md-card-content>
-      </md-card>
-      <md-card ng-show="job.editable" layout-align="column">
-        <div layout="row">
-          <span flex></span>
-          <md-button class="md-icon-button" ng-click="job.editable = false; high.$save()">
-            <md-icon class="material-icons md-dark" aria-label="Finish Editing">edit</md-icon>
-          </md-button>
-        </div>
-        <md-card-header>
-          <md-card-avatar>
-            <img class="md-user-avatar" src="img/100-2.jpeg"/>
-          </md-card-avatar>
-          <md-card-header-text layout="column">
-            <span layout-align="center start" class="md-title">User</span>
-            <span layout-align="center start"><md-input-container class="md-body-1"><label>Location</label><input
-              ng-model="job.location"></md-input-container></span>
-          </md-card-header-text>
-        </md-card-header>
-        <md-card-title>
-          <md-card-title-text><span class="md-headline"><md-input-container class="md-headline">
-            <label>Title</label>
-            <input ng-model="job.name">
-          </md-input-container></span></md-card-title-text>
-        </md-card-title>
-        <md-card-content>
-          <md-input-container layout-align="end" class="md-block md-body-1">
-            <label>Description</label>
-            <textarea columns="1" rows="4" md-maxlength="100" ng-model="job.desc"></textarea>
-          </md-input-container>
-        </md-card-content>
-      </md-card>
-    </md-grid-tile>
-  </md-grid-list>
-  <md-grid-list id="midPriority" md-cols="5" md-cols-sm="1" md-cols-md="2" md-gutter="1em" md-row-height="18rem">
-    <md-grid-tile ng-repeat="job in mid" md-rowspan="1" md-colspan="1">
-      <md-card>
-        <md-card-content>
-          <h2>{{job.name}}</h2>
-
-          <p>{{job.desc}}</p>
-        </md-card-content>
-      </md-card>
-    </md-grid-tile>
-  </md-grid-list>
-  <md-grid-list id="lowPriority" md-cols="5" md-cols-sm="1" md-cols-md="2" md-gutter="1em" md-row-height="18rem">
-    <md-grid-tile ng-repeat="job in low" md-rowspan="1" md-colspan="1">
-      <md-card>
-        <md-card-content>
-          <h2>{{job.name}}</h2>
-
-          <p>{{job.desc}}</p>
-        </md-card-content>
-      </md-card>
-    </md-grid-tile>
-  </md-grid-list>
-</section>
+  <section layout="row">
+    <span id="highPriority"></span>
+    <md-grid-list flex layout-align="start" class="background" md-cols="5" md-cols-sm="1" md-cols-md="2" md-gutter="1em"
+                  md-row-height="18rem">
+      <md-grid-tile ng-repeat="(id, job) in high" md-rowspan="1" md-colspan="1">
+        <md-card class="md-whiteframe-8dp">
+          <div layout="row">
+            <md-button ng-show="officer == true" class="md-icon-button" ng-click="showEditJob($event, job, id)">
+              <md-icon class="material-icons md-dark" aria-label="edit">edit</md-icon>
+            </md-button>
+            <span flex></span>
+            <md-button ng-show="officer == true" class="md-icon-button" ng-click="completeJob(id, job)">
+              <md-icon class="material-icons" aria-label="finish">check</md-icon>
+            </md-button>
+          </div>
+          <md-card-header>
+            <!--
+            <md-card-avatar>
+              <img class="md-user-avatar" src="img/100-2.jpeg"/>
+            </md-card-avatar>
+            -->
+            <md-card-header-text layout="column" layout-align="start start">
+              <span class="md-subhead">{{job.subgroup}}</span>
+              <span class="md-subhead">{{job.leader}}</span>
+            </md-card-header-text>
+          </md-card-header>
+          <md-card-title>
+            <md-card-title-text><span class="md-headline">{{job.name}}</span></md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+            <p>{{job.desc}}</p>
+          </md-card-content>
+        </md-card>
+      </md-grid-tile>
+    </md-grid-list>
+  </section>
+  <section layout="row">
+    <span id="midPriority"></span>
+    <md-grid-list flex class="background" md-cols="5" md-cols-sm="1" md-cols-md="2" md-gutter="1em"
+                  md-row-height="18rem">
+      <md-grid-tile ng-repeat="(id,job) in mid" md-rowspan="1" md-colspan="1">
+        <md-card class="md-whiteframe-8dp">
+          <div layout="row">
+            <md-button ng-show="officer == true" class="md-icon-button" ng-click="showEditJob($event, job, id)">
+              <md-icon class="material-icons md-dark" aria-label="edit">edit</md-icon>
+            </md-button>
+            <span flex></span>
+            <md-button ng-show="officer == true" class="md-icon-button" ng-click="completeJob(id, job)">
+              <md-icon class="material-icons" aria-label="finish">check</md-icon>
+            </md-button>
+          </div>
+          <md-card-header>
+            <!--
+            <md-card-avatar>
+              <img class="md-user-avatar" src="img/100-2.jpeg"/>
+            </md-card-avatar>
+            -->
+            <md-card-header-text layout="column" layout-align="start start">
+              <span class="md-subhead">{{job.subgroup}}</span>
+              <span class="md-subhead">{{job.leader}}</span>
+            </md-card-header-text>
+          </md-card-header>
+          <md-card-title>
+            <md-card-title-text><span class="md-headline">{{job.name}}</span></md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+            <p>{{job.desc}}</p>
+          </md-card-content>
+        </md-card>
+      </md-grid-tile>
+    </md-grid-list>
+  </section>
+  <section layout="row">
+    <span id="lowPriority"></span>
+    <md-grid-list flex class="background" md-cols="5" md-cols-sm="1" md-cols-md="2" md-gutter="1em"
+                  md-row-height="18rem">
+      <md-grid-tile ng-repeat="(id, job) in low" md-rowspan="1" md-colspan="1">
+        <md-card class="md-whiteframe-8dp">
+          <div layout="row">
+            <md-button ng-show="officer == true" class="md-icon-button" ng-click="showEditJob($event, job, id)">
+              <md-icon class="material-icons md-dark" aria-label="edit">edit</md-icon>
+            </md-button>
+            <span flex></span>
+            <md-button ng-show="officer == true" class="md-icon-button" ng-click="completeJob(id, job)">
+              <md-icon class="material-icons" aria-label="finish">check</md-icon>
+            </md-button>
+          </div>
+          <md-card-header>
+            <!--
+            <md-card-avatar>
+              <img class="md-user-avatar" src="img/100-2.jpeg"/>
+            </md-card-avatar>
+            -->
+            <md-card-header-text layout="column" layout-align="start start">
+              <span class="md-subhead">{{job.subgroup}}</span>
+              <span class="md-subhead">{{job.leader}}</span>
+            </md-card-header-text>
+          </md-card-header>
+          <md-card-title>
+            <md-card-title-text><span class="md-headline">{{job.name}}</span></md-card-title-text>
+          </md-card-title>
+          <md-card-content>
+            <p>{{job.desc}}</p>
+          </md-card-content>
+        </md-card>
+        </md-card>
+      </md-grid-tile>
+    </md-grid-list>
+  </section>

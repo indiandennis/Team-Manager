@@ -1,3 +1,7 @@
+.absolute {
+  position: fixed;
+}
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -5,7 +9,12 @@
   padding: 0.2em 0;
 }
 
+.background {
+  background-color: #3A3A3A;
+}
+
 #highPriority {
+  width: 2REM;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff0000+0,ff7b00+100 */
   background: #ff0000; /* Old browsers */
   background: -moz-linear-gradient(top, #ff0000 0%, #ff7b00 100%); /* FF3.6-15 */
@@ -15,27 +24,31 @@
 }
 
 #midPriority {
+  width: 2REM;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff7b00+0,fcc100+100 */
   background: #ff7b00; /* Old browsers */
   background: -moz-linear-gradient(top, #ff7b00 0%, #fcc100 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(top, #ff7b00 0%, #fcc100 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, #ff7b00 0%, #fcc100 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff7b00', endColorstr='#fcc100', GradientType=0); /* IE6-9 */
-
 }
 
 #lowPriority {
+  width: 2REM;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fcc100+0,ffff00+100 */
   background: #fcc100; /* Old browsers */
   background: -moz-linear-gradient(top, #fcc100 0%, #ffff00 100%); /* FF3.6-15 */
   background: -webkit-linear-gradient(top, #fcc100 0%, #ffff00 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to bottom, #fcc100 0%, #ffff00 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcc100', endColorstr='#ffff00', GradientType=0); /* IE6-9 */
-
 }
 
 #container {
-  background-color: #ffff00;
+  background-color: #3A3A3A;
+}
+
+.large-spacing {
+  letter-spacing: 1REM;
 }
 
 .material-icons.md-18 {
@@ -69,3 +82,26 @@
 .material-icons.md-light.md-inactive {
   color: rgba(255, 255, 255, 0.3);
 }
+
+.md-button.md-fab.md-fab-bottom-right {
+  top: auto;
+  right: 20px;
+  bottom: 20px;
+  left: auto;
+  position: fixed;
+}
+
+#popupContainer {
+  position: relative;
+}
+
+.rot-neg-90 {
+  -moz-transform: rotate(-270deg);
+  -moz-transform-origin: bottom left;
+  -webkit-transform: rotate(-270deg);
+  -webkit-transform-origin: bottom left;
+  -o-transform: rotate(-270deg);
+  -o-transform-origin: bottom left;
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+}
+

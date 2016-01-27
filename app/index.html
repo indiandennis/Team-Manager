@@ -1,6 +1,5 @@
 <!doctype html>
 <html class="no-js">
-
 <head>
   <meta charset="utf-8">
   <title></title>
@@ -25,24 +24,48 @@
   <strong>outdated</strong>browser. Please
   <a href="http://browsehappy.com/">upgrade your browser</a>to improve your experience.</p>
 <![endif]-->
-<md-toolbar layout="row" layout-align="space-between center">
-  <md-button class="md-icon-button" ng-click="toggleLeft()" aria-label="Menu">
-    <md-icon md-font-set="material-icons">menu</md-icon>
-  </md-button>
-  <h3 layout-margin layout-padding class="md-headline">Prospect Robotics</h3>
-  <md-button class="md-icon-button" ng-click="showSettings($event)" aria-label="Settings">
-    <md-icon md-font-set="material-icons">settings</md-icon>
-  </md-button>
+<md-toolbar layout="column" layout-align="start space-between" class="md-whiteframe-8dp">
+  <section layout="row" layout-align="space-between center">
+    <md-button class="md-icon-button" ng-click="toggleLeft()" aria-label="Menu">
+      <md-icon md-font-set="material-icons">menu</md-icon>
+    </md-button>
+    <h3 layout-margin layout-padding class="md-headline">Prospect Robotics</h3>
+    <md-button class="md-icon-button" ng-click="showSettings($event)" aria-label="Settings">
+      <md-icon md-font-set="material-icons">settings</md-icon>
+    </md-button>
+  </section>
+  <section layout="row" layout-align="end center">
+    <!--
+    <md-input-container class="md-block" flex="35" >
+      <label>Filter</label>
+
+      <md-select ng-model="filter">
+        <md-option>None</md-option>
+        <md-option>Software</md-option>
+        <md-option>Electrical</md-option>
+        <md-option>CAD</md-option>
+        <md-option>Hardware</md-option>
+      </md-select>
+    </md-input-container>
+    -->
+  </section>
 </md-toolbar>
+<md-button ng-show="officer==true" ng-click="showNewJob($event)" class='md-fab md-fab-bottom-right'>
+  <md-icon md-icon-set="material-icons">add</md-icon>
+</md-button>
 <div layout="row">
   <md-sidenav class="test md-sidenav-left md-whiteframe-z3" md-component-id="left">
     <md-content layout-margin ng-controller="SidenavController as nav">
       <md-list layout="column">
         <md-subheader class="md-no-sticky">Menu Here</md-subheader>
         <div ng-controller="AuthController as auth">
-          <md-list-item ng-click="logout()">
+          <md-list-item ng-show="officer == true" ng-click="logout()">
             <p>Logout</p>
             <md-icon md-icon-set="material-icons">exit_to_app</md-icon>
+          </md-list-item>
+          <md-list-item ng-hide="officer==true" ng-click="showLogin()">
+            <p>Login</p>
+            <md-icon md-icon-set="material-icons">account_circle</md-icon>
           </md-list-item>
         </div>
       </md-list>
@@ -85,7 +108,14 @@
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/settings.js"></script>
 <script src="scripts/controllers/auth.js"></script>
-
+<script src="scripts/controllers/newjob.js"></script>
+<script src="scripts/services/newjob.js"></script>
+<script src="scripts/controllers/editjob.js"></script>
+<script src="scripts/services/auth.js"></script>
+<!--<script src="scripts/services/name.js"></script>
+<script src="scripts/directives/name.js"></script>-->
+<script src="scripts/services/currentjob.js"></script>
+<script src="scripts/services/archive.js"></script>
 <!-- endbuild -->
 </body>
 
