@@ -10,7 +10,7 @@
  * Controller of the teamManagerApp
  */
 angular.module('teamManagerApp')
-  .controller('MainController', function ($scope, $timeout, $mdSidenav, $mdUtil, $log, $mdDialog, $firebaseAuth, $firebaseObject) {
+  .controller('MainController', function ($scope, $timeout, $mdSidenav, $mdUtil, $log, $mdDialog, $firebaseAuth, $firebaseObject, OfficerFactory) {
     function buildToggler(navID) {
       var debounceFn = $mdUtil.debounce(function () {
         $mdSidenav(navID)
@@ -22,6 +22,7 @@ angular.module('teamManagerApp')
       return debounceFn;
     }
 
+    $scope.officer = OfficerFactory();
     $scope.toggleLeft = buildToggler('left');
     $scope.officer = false;
     $scope.showSettings = function (ev) {

@@ -8,7 +8,7 @@
  * Controller of the teamManagerApp
  */
 angular.module('teamManagerApp')
-  .controller('AuthController', function ($scope, $mdDialog, $firebaseAuth, $firebaseObject) {
+  .controller('AuthController', function ($scope, $mdDialog, $firebaseAuth, $firebaseObject, OfficerFactory) {
     var ref = new Firebase('https://phsrobotics.firebaseio.com');
     var syncObject = $firebaseObject(ref);
     $scope.logout = function () {
@@ -21,7 +21,7 @@ angular.module('teamManagerApp')
         password: $scope.password
       }, authHandler);
     }
-    $scope.officer = true;
+    $scope.officer = OfficerFactory();
     $scope.error = "false";
     function authHandler(error, authData) {
       if (error) {
