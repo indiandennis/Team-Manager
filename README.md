@@ -12,3 +12,7 @@ Run `grunt` for building and `grunt serve` for preview.
 ## Testing
 
 Running `grunt test` will run the unit tests with karma.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/indiandennis/team-manager/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
